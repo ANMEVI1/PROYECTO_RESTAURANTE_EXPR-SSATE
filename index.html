@@ -3,170 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FastBite - Comida Rápida de Calidad</title>
+    <meta name="description" content="ExpréSSate - La mejor comida rápida de calidad con hamburguesas, combos, salchipapas y más. ¡Ordena ahora!">
+    <title>ExpréSSate - Comida Rápida de Calidad</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <!-- Header -->
-    <header>
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <a href="index.html">FastBite</a>
+    <header class="header">
+        <section class="container header-container">
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+            <a href="index.html" class="logo">
+                <img src="assets/logo_proyect.svg" alt="Logo ExpréSSate"><span>ExpréSSate</span>
+            </a>
+            <div class="header-right">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Buscar plato..." aria-label="Buscar plato">
+                    <i class="fas fa-search"></i>
+                    <div class="search-results" id="searchResults" role="listbox"></div>
                 </div>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link">Inicio</a></li>
-                    <li><a href="#menu" class="nav-link">Menú</a></li>
-                    <li><a href="pedidos.html" class="nav-link">Pedidos</a></li>
-                    <li><a href="login.html" class="nav-link btn-login">Iniciar Sesión</a></li>
-                </ul>
-
-                <button class="hamburger" aria-label="Abrir menú">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
+                <div class="cart-icon">
+                    <a href="carrito.html" aria-label="Ver carrito">
+                        <i class="fas fa-shopping-cart"></i><span id="cartCount">0</span>
+                    </a>
+                </div>
+                <div class="user-icon">
+                    <a href="login.html">
+                        <i class="fas fa-user"></i><span class="user-text">Iniciar sesión</span>
+                    </a>
+                </div>
             </div>
-        </nav>
+        </section>
     </header>
-
-    <!-- Main Content -->
-    <main>
-
-        <!-- Hero Section -->
-        <section class="hero" role="banner">
-            <div class="hero-content">
-                <h1 class="hero-title">Sabor Rápido, Calidad Garantizada</h1>
-                <p class="hero-subtitle">Disfruta de nuestras deliciosas hamburguesas, papas fritas y más, preparadas al momento con ingredientes frescos.</p>
-                <div class="hero-buttons">
-                    <a href="pedidos.html" class="btn btn-primary">Hacer Pedido</a>
-                    <a href="#menu" class="btn btn-secondary">Ver Menú</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Menu Section -->
-        <section id="menu" class="menu-section">
-            <div class="container">
-                <h2 class="section-title">Nuestro Menú</h2>
-                
-                <div class="menu-grid">
-
-                    <!-- Item 1 -->
-                    <article class="menu-item">
-                        <figure class="menu-item-image">
-                            <img src="assets/72526429-tasty-classical-burger.jpg" alt="Hamburguesa Clásica">
-                        </figure>
-                        <div class="menu-item-content">
-                            <h3>Hamburguesa Clásica</h3>
-                            <p>Carne 100% de res, lechuga, tomate, cebolla y nuestra salsa especial.</p>
-                            <span class="menu-item-price">S/ 25.90</span>
-                        </div>
-                    </article>
-
-                    <!-- Item 2 -->
-                    <article class="menu-item">
-                        <figure class="menu-item-image">
-                            <img src="assets/pps.avif" alt="Papas Fritas">
-                        </figure>
-                        <div class="menu-item-content">
-                            <h3>Papas Fritas</h3>
-                            <p>Crujientes papas fritas con un toque de sal marina.</p>
-                            <span class="menu-item-price">S/ 12.50</span>
-                        </div>
-                    </article>
-
-                    <!-- Item 3 -->
-                    <article class="menu-item">
-                        <figure class="menu-item-image">
-                            <img src="assets/refrescos.avif" alt="Refresco">
-                        </figure>
-                        <div class="menu-item-content">
-                            <h3>Refresco</h3>
-                            <p>Variedad de refrescos fríos para acompañar tu comida.</p>
-                            <span class="menu-item-price">S/ 6.90</span>
-                        </div>
-                    </article>
-
-                    <!-- Item 4 -->
-                    <article class="menu-item">
-                        <figure class="menu-item-image">
-                            <img src="assets/alitas.jpg" alt="Alitas de Pollo">
-                        </figure>
-                        <div class="menu-item-content">
-                            <h3>Alitas de Pollo</h3>
-                            <p>8 piezas con salsa BBQ o Buffalo.</p>
-                            <span class="menu-item-price">S/ 18.90</span>
-                        </div>
-                    </article>
-
-                    <!-- Item 5 -->
-                    <article class="menu-item">
-                        <figure class="menu-item-image">
-                            <img src="assets/ensalada.jfif" alt="Ensalada César">
-                        </figure>
-                        <div class="menu-item-content">
-                            <h3>Ensalada César</h3>
-                            <p>Lechuga, pollo, crutones y aderezo.</p>
-                            <span class="menu-item-price">S/ 15.90</span>
-                        </div>
-                    </article>
-
-                    <!-- Item 6 -->
-                    <article class="menu-item">
-                        <figure class="menu-item-image">
-                            <img src="assets/combo.jfif" alt="Combo Familiar">
-                        </figure>
-                        <div class="menu-item-content">
-                            <h3>Combo Familiar</h3>
-                            <p>3 hamburguesas, 2 papas, 3 refrescos.</p>
-                            <span class="menu-item-price">S/ 65.90</span>
-                        </div>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-content">
-
-            <section class="footer-section">
-                <h3>FastBite</h3>
-                <p>Comida rápida de calidad con ingredientes frescos y servicio excepcional.</p>
-            </section>
-
-            <section class="footer-section">
-                <h4>Enlaces Rápidos</h4>
-                <nav aria-label="Enlaces Rápidos">
-                    <ul>
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="#menu">Menú</a></li>
-                        <li><a href="pedidos.html">Pedidos</a></li>
-                    </ul>
-                </nav>
-            </section>
-
-            <section class="footer-section">
-                <h4>Contacto</h4>
-                <address>
-                    Dirección: Av. el ejercito<br>
-                    Teléfono: (01) 456-7890<br>
-                    Email: richard@gmail.com
-                </address>
-            </section>
-
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <span class="logo-sidebar">ExpréSSate</span>
+            <button class="close-sidebar" aria-label="Cerrar menú"><i class="fas fa-times"></i></button>
         </div>
+        <nav class="sidebar-nav">
+            <a href="login.html"><i class="fas fa-sign-in-alt"></i><span>Iniciar Sesión</span></a>
+            <a href="#menu"><i class="fas fa-utensils"></i><span>Menú Completo</span></a>
+            <a href="#top-ventas"><i class="fas fa-fire"></i><span>Top Ventas</span></a>
+            <a href="#promociones"><i class="fas fa-tag"></i><span>Promociones</span></a>
+            <a href="#menu"><i class="fas fa-hamburger"></i><span>Hamburguesas</span></a>
+            <a href="#menu"><i class="fas fa-box"></i><span>Combos</span></a>
+            <a href="#menu"><i class="fas fa-hotdog"></i><span>Salchipapas</span></a>
+            <a href="#menu"><i class="fas fa-ice-cream"></i><span>Postres</span></a>
+            <a href="#menu"><i class="fas fa-coffee"></i><span>Bebidas</span></a>
+        </nav>
+    </aside>
+    <div class="overlay" id="overlay"></div>
+    <main>
+        <section class="hero-carousel" aria-label="Promociones destacadas">
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <img src="assets/banner-02-hamburguesa-clásica.png" alt="Hamburguesa Clásica - Promoción especial">
+                </div>
+                <div class="carousel-slide">
+                    <img src="assets/banner-01.png" alt="Combo Familiar - Oferta especial">
+                </div>
+                <div class="carousel-slide">
+                    <img src="assets/banner-03-.png" alt="Promoción del día">
+                </div>
+                <div class="carousel-slide">
+                    <img src="assets/banner-04.png" alt="Nuevos productos">
+                </div>
+            </div>
+            <button class="prev" aria-label="Anterior">&#10094;</button>
+            <button class="next" aria-label="Siguiente">&#10095;</button>
+        </section>
 
+        <!-- Top Ventas -->
+        <section class="top-ventas container" id="top-ventas">
+            <h2 class="section-title">Top Ventas</h2>
+            <p class="section-subtitle">Los favoritos de nuestros clientes</p>
+            <div class="mini-carousel"></div>
+        </section>
+
+        <!-- Promociones -->
+        <section class="promociones container" id="promociones">
+            <h2 class="section-title">Promociones</h2>
+            <p class="section-subtitle">Ofertas especiales que no puedes perderte</p>
+            <div class="mini-carousel"></div>
+        </section>
+
+        <!-- Menú Completo -->
+        <section class="menu-full container" id="menu">
+            <h2 class="section-title">Nuestro Menú</h2>
+            <p class="section-subtitle">Descubre toda nuestra variedad de platos deliciosos</p>
+            <div class="menu-grid" id="menuGrid"></div>
+        </section>
+
+        <!-- Sobre Nosotros -->
+        <section class="about">
+    <div class="container">
+        <h2 class="section-title">Sobre Nosotros</h2>
+        <p class="section-subtitle">Conoce más sobre ExpréSSate</p>
+        
+        <div class="about-grid">
+            <div class="about-card">
+                <div class="about-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>Ubícanos</h3>
+                <p>Visítanos en nuestro local de Trujillo</p>
+                <div class="map-placeholder">
+                    <p><strong>📍 Dirección:</strong></p>
+                    <p>Trujillo, La Libertad, Perú</p>
+                    <p>Lunes a Domingo: 11:00 AM - 10:00 PM</p>
+                </div>
+            </div>
+            
+            <div class="about-card">
+                <div class="about-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>¿Quiénes somos?</h3>
+                <p>Somos un restaurante de comida rápida comprometido con la calidad y el sabor. Desde 2020, ofrecemos los mejores ingredientes frescos preparados con dedicación y amor por lo que hacemos.</p>
+            </div>
+            
+            <div class="about-card">
+                <div class="about-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Política de Privacidad</h3>
+                <p>Protegemos tus datos personales y garantizamos la confidencialidad de tu información. Tu confianza es nuestra prioridad.</p>
+                <a href="#politica">Leer política completa</a>
+            </div>
+            
+            <div class="about-card">
+                <div class="about-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h3>Trabaja con Nosotros</h3>
+                <p>¿Te apasiona la gastronomía? Únete a nuestro equipo y crece profesionalmente con nosotros.</p>
+                <p><strong>Envía tu CV a:</strong></p>
+                <a href="mailto:rrhh@expressate.com">rrhh@expressate.com</a>
+            </div>
+        </div>
+    </div>
+</section>
+    </main>
+    <footer class="footer">
+        <section  class="container footer-grid">
+            
+            <div class="footer-brand">
+                <div class="footer-logo-box">
+                    <img src="assets/logo_proyect.svg" alt="Logo ExpréSSate">
+                    <span>ExpréSSate</span>
+                </div>
+                <p>La mejor comida rápida de la ciudad, preparada con ingredientes frescos y mucho amor. ¡Siente el sabor!</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>Atención al Cliente</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +51 999 999 999</li>
+                    <li><i class="fab fa-whatsapp"></i> +51 999 999 999</li>
+                    <li><a href="#"><i class="fas fa-comment-dots"></i> Encuesta de satisfacción</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>Enlaces Útiles</h3>
+                <ul>
+                    <li><a href="reclamaciones.html"><i class="fas fa-file-alt"></i> Libro de Reclamaciones</a></li>
+                    <li><a href="login.html"><i class="fas fa-lock"></i> Intranet</a></li>
+                </ul>
+            </div>
+
+            <div class="qr-section">
+                <h3>¡Pide Rápido!</h3>
+                <p>Escanea el código QR</p>
+                <img src="assets/qr-pedido.png" alt="Código QR para pedidos rápidos">
+            </div>
+        </section>
+        
         <div class="footer-bottom">
-            <p>&copy; 2025 FastBite. Todos los derechos reservados.</p>
+            <p>&copy; 2025 ExpréSSate. Todos los derechos reservados.</p>
+            <p class="footer-dev">Desarrollado por: RAMOS, RICHARD Y ANDRE </p>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/sidebar.js"></script>
 </body>
 </html>

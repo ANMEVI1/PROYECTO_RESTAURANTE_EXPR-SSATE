@@ -3,246 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Realizar Pedido - FastBite</title>
+    <title>Completar Pedido - ExpréSSate</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-
-    <!-- Header -->
-    <header>
-        <nav class="navbar" aria-label="Menú principal">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <a href="index.html">FastBite</a>
+    <header class="header">
+        <section class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo_proyect.svg" alt="Logo ExpréSSate"><span>ExpréSSate</span>
+            </a>
+            <div class="header-right">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Buscar plato..." aria-label="Buscar plato">
+                    <i class="fas fa-search"></i>
+                    <div class="search-results" id="searchResults" role="listbox"></div>
                 </div>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link">Inicio</a></li>
-                    <li><a href="#menu" class="nav-link">Menú</a></li>
-                    <li><a href="login.html" class="nav-link btn-login">Iniciar Sesión</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Main Content -->
-    <main>
-        <section class="order-section" aria-labelledby="titulo-pedido">
-            <div class="container">
-                <h2 id="titulo-pedido" class="section-title">¿Cómo quieres hoy tu pedido?</h2>
-
-                <!-- Opciones de entrega -->
-                <section class="delivery-options" aria-label="Opciones de entrega">
-                    <article class="delivery-option active" data-type="pickup">
-                        <div class="option-icon">🚗</div>
-                        <h3>Pido y Retiro</h3>
-                        <p>Recoge tu pedido en nuestro local</p>
-                    </article>
-
-                    <article class="delivery-option" data-type="delivery">
-                        <div class="option-icon">🏠</div>
-                        <h3>Delivery</h3>
-                        <p>Te lo llevamos a tu domicilio</p>
-                    </article>
-                </section>
-
-                <!-- Formulario -->
-                <article class="order-container">
-                    <form id="orderForm" class="order-form">
-
-                        <!-- Información del Cliente -->
-                        <fieldset class="form-section">
-                            <legend>Información del Cliente</legend>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="customerName">Nombre Completo *</label>
-                                    <input type="text" id="customerName" name="customerName" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="customerPhone">Teléfono *</label>
-                                    <input type="tel" id="customerPhone" name="customerPhone" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="customerEmail">Correo Electrónico</label>
-                                <input type="email" id="customerEmail" name="customerEmail">
-                            </div>
-                        </fieldset>
-
-                        <!-- Recojo -->
-                        <fieldset class="form-section delivery-info">
-                            <legend>Información de Recojo</legend>
-
-                            <div class="form-group">
-                                <label for="pickupTime">Hora de Recojo *</label>
-                                <input type="time" id="pickupTime" name="pickupTime" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="pickupDate">Fecha de Recojo *</label>
-                                <input type="date" id="pickupDate" name="pickupDate" required>
-                            </div>
-                        </fieldset>
-
-                        <!-- Delivery -->
-                        <fieldset class="form-section delivery-info hidden">
-                            <legend>Información de Entrega</legend>
-
-                            <div class="form-group">
-                                <label for="deliveryAddress">Dirección de Entrega *</label>
-                                <textarea id="deliveryAddress" name="deliveryAddress" rows="3"></textarea>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="deliveryTime">Hora de Entrega *</label>
-                                    <input type="time" id="deliveryTime" name="deliveryTime">
-                                </div>
-                                <div class="form-group">
-                                    <label for="deliveryDate">Fecha de Entrega *</label>
-                                    <input type="date" id="deliveryDate" name="deliveryDate">
-                                </div>
-                            </div>
-                        </fieldset>
-
-                        <!-- Selección del Menú -->
-                        <fieldset class="form-section">
-                            <legend>Selecciona tus Productos</legend>
-
-                            <div class="menu-options-grid">
-
-                                <label class="menu-option-card">
-                                    <input type="checkbox" id="burger" name="items"
-                                        value="Hamburguesa Clásica" data-price="25.90">
-                                    <div class="option-content">
-                                        <h4>Hamburguesa Clásica</h4>
-                                        <p>Carne 100% de res con vegetales frescos</p>
-                                        <div class="option-price">S/ 25.90</div>
-                                    </div>
-                                </label>
-
-                                <label class="menu-option-card">
-                                    <input type="checkbox" id="fries" name="items"
-                                        value="Papas Fritas" data-price="12.50">
-                                    <div class="option-content">
-                                        <h4>Papas Fritas</h4>
-                                        <p>Crujientes papas con sal marina</p>
-                                        <div class="option-price">S/ 12.50</div>
-                                    </div>
-                                </label>
-
-                                <label class="menu-option-card">
-                                    <input type="checkbox" id="soda" name="items"
-                                        value="Refresco" data-price="6.90">
-                                    <div class="option-content">
-                                        <h4>Refresco</h4>
-                                        <p>Bebida fría de 500ml</p>
-                                        <div class="option-price">S/ 6.90</div>
-                                    </div>
-                                </label>
-
-                                <label class="menu-option-card">
-                                    <input type="checkbox" id="chicken" name="items"
-                                        value="Alitas de Pollo" data-price="18.90">
-                                    <div class="option-content">
-                                        <h4>Alitas de Pollo</h4>
-                                        <p>8 piezas con salsa BBQ o Buffalo</p>
-                                        <div class="option-price">S/ 18.90</div>
-                                    </div>
-                                </label>
-
-                                <label class="menu-option-card">
-                                    <input type="checkbox" id="salad" name="items"
-                                        value="Ensalada César" data-price="15.90">
-                                    <div class="option-content">
-                                        <h4>Ensalada César</h4>
-                                        <p>Lechuga, pollo, crutones y aderezo</p>
-                                        <div class="option-price">S/ 15.90</div>
-                                    </div>
-                                </label>
-
-                                <label class="menu-option-card">
-                                    <input type="checkbox" id="combo1" name="items"
-                                        value="Combo Familiar" data-price="65.90">
-                                    <div class="option-content">
-                                        <h4>Combo Familiar</h4>
-                                        <p>3 hamburguesas, 2 papas, 3 refrescos</p>
-                                        <div class="option-price">S/ 65.90</div>
-                                    </div>
-                                </label>
-
-                            </div>
-                        </fieldset>
-
-                        <!-- Resumen -->
-                        <aside class="order-summary" aria-label="Resumen del pedido">
-                            <h3>Resumen del Pedido</h3>
-
-                            <div id="orderItems" class="order-items"></div>
-
-                            <div class="order-total">
-                                <div class="total-line">
-                                    <span>Subtotal:</span>
-                                    <span>S/ <span id="subtotalPrice">0.00</span></span>
-                                </div>
-
-                                <div class="total-line delivery-charge hidden">
-                                    <span>Costo de delivery:</span>
-                                    <span>S/ <span id="deliveryPrice">5.00</span></span>
-                                </div>
-
-                                <div class="total-line final-total">
-                                    <strong>Total:</strong>
-                                    <strong>S/ <span id="totalPrice">0.00</span></strong>
-                                </div>
-                            </div>
-                        </aside>
-
-                        <button type="submit" class="btn btn-primary btn-full">Confirmar Pedido</button>
-
-                    </form>
-                </article>
+                <div class="cart-icon">
+                    <a href="carrito.html" aria-label="Ver carrito">
+                        <i class="fas fa-shopping-cart"></i><span id="cartCount">0</span>
+                    </a>
+                </div>
+                <div class="user-icon">
+                    <a href="login.html">
+                        <i class="fas fa-user"></i><span class="user-text">Iniciar sesión</span>
+                    </a>
+                </div>
             </div>
         </section>
+    </header>
+    <main class="container pedido-section">
+        <h1 class="section-title">Completar Pedido</h1>
+        <form id="formPedido" class="order-form">
+            <div class="form-section">
+                <h3>Datos de Entrega</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nombre Completo</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Teléfono</label>
+                        <input type="tel" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Dirección completa</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Referencia (opcional)</label>
+                    <input type="text">
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Método de Pago</h3>
+                <div class="payment-options">
+                    <label><input type="radio" name="pago" value="efectivo"> Efectivo</label>
+                    <label><input type="radio" name="pago" value="yape"> Yape</label>
+                    <label><input type="radio" name="pago" value="plin"> Plin</label>
+                    <label><input type="radio" name="pago" value="tarjeta"> Tarjeta (Culqi)</label>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Tipo de Comprobante</h3>
+                <label><input type="radio" name="comprobante" value="boleta"> Boleta</label>
+                <label><input type="radio" name="comprobante" value="factura"> Factura</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">Confirmar Pedido</button>
+        </form>
     </main>
+<footer class="footer">
+        <section  class="container footer-grid">
+            
+            <div class="footer-brand">
+                <div class="footer-logo-box">
+                    <img src="assets/logo_proyect.svg" alt="Logo ExpréSSate">
+                    <span>ExpréSSate</span>
+                </div>
+                <p>La mejor comida rápida de la ciudad, preparada con ingredientes frescos y mucho amor. ¡Siente el sabor!</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-content">
-
-            <section class="footer-section">
-                <h3>FastBite</h3>
-                <p>Comida rápida de calidad con ingredientes frescos y servicio excepcional.</p>
-            </section>
-
-            <nav class="footer-section" aria-label="Enlaces rápidos">
-                <h4>Enlaces Rápidos</h4>
+            <div class="footer-links">
+                <h3>Atención al Cliente</h3>
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="#menu">Menú</a></li>
-                    <li><a href="pedidos.html">Pedidos</a></li>
+                    <li><i class="fas fa-phone"></i> +51 999 999 999</li>
+                    <li><i class="fab fa-whatsapp"></i> +51 999 999 999</li>
+                    <li><a href="#"><i class="fas fa-comment-dots"></i> Encuesta de satisfacción</a></li>
                 </ul>
-            </nav>
+            </div>
 
-            <section class="footer-section">
-                <h4>Contacto</h4>
-                <address>
-                    Dirección: Av. Principal #123, Lima<br>
-                    Teléfono: (01) 456-7890<br>
-                    Email: info@fastbite.com
-                </address>
-            </section>
+            <div class="footer-links">
+                <h3>Enlaces Útiles</h3>
+                <ul>
+                    <li><a href="reclamaciones.html"><i class="fas fa-file-alt"></i> Libro de Reclamaciones</a></li>
+                    <li><a href="login.html"><i class="fas fa-lock"></i> Intranet</a></li>
+                </ul>
+            </div>
 
-        </div>
-
+            <div class="qr-section">
+                <h3>¡Pide Rápido!</h3>
+                <p>Escanea el código QR</p>
+                <img src="assets/qr-pedido.png" alt="Código QR para pedidos rápidos">
+            </div>
+        </section>
+        
         <div class="footer-bottom">
-            <p>&copy; 2023 FastBite. Todos los derechos reservados.</p>
+            <p>&copy; 2025 ExpréSSate. Todos los derechos reservados.</p>
+            <p class="footer-dev">Desarrollado por: RAMOS, RICHARD Y ANDRE </p>
         </div>
     </footer>
-
-    <script src="js/pedidos.js"></script>
-
+    <script src="js/pedido.js"></script>
 </body>
 </html>
